@@ -29,7 +29,10 @@ pipeline {
             steps {
                 script {
                     // Build the Docker image using the Dockerfile in the repository
-                    docker.build("${IMAGE_NAME}:latest")
+                    //docker.build("${IMAGE_NAME}:latest")
+                    sh '''
+                      docker build -t ${IMAGE_NAME}:latest .
+                       '''
                 }
             }
         }
