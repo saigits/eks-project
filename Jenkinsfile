@@ -63,8 +63,8 @@ pipeline {
                     // Deploy the image to the EKS cluster
                     sh '''
                         kubectl config use-context arn:aws:eks:${AWS_REGION}:${AWS_ACCOUNT_ID}:cluster/my-eks-cluster
-                        kubectl apply -f k8s/deployment.yaml --namespace=${K8S_NAMESPACE}
-                        kubectl apply -f k8s/service.yaml --namespace=${K8S_NAMESPACE}
+                        kubectl apply -f deployment.yaml --namespace=${K8S_NAMESPACE}
+                        kubectl apply -f service.yaml --namespace=${K8S_NAMESPACE}
                     '''
                 }
             }
