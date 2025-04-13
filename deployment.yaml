@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sai-eks
+  namespace: sai
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sai-eks
+  template:
+    metadata:
+      labels:
+        app: sai-eks
+    spec:
+      containers:
+      - name: sai-eks
+        image: my-eks-ecr.dkr.ecr.us-east-1.amazonaws.com/my-eks-repo:my-eks-image-latest
+        ports:
+        - containerPort: 8080
